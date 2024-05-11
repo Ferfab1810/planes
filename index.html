@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Plans!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        #welcome-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fade-in 1s ease-in-out forwards;
+        }
+
+        #main {
+            display: none;
+            padding: 20px;
+            animation: fade-in 1s ease-in-out forwards;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #8736BD;
+            animation: bounce-in 1s ease-in-out forwards;
+        }
+
+        p {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #A855DE;
+            font-style: italic;
+            animation: slide-in 1s ease-in-out forwards;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color:#613A7B;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite alternate;
+        }
+
+        button:hover {
+            background-color: #D494FF;
+        }
+
+        .invitation {
+            font-size: 2em;
+            color: #B4739C;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Animación de aparición */
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animación de texto */
+        @keyframes bounce-in {
+            0% {
+                transform: translateY(-50px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilos para el contenedor principal */
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Espacio para la imagen */
+        .image-container {
+            margin-top: 40px;
+            animation: slide-up 1s ease-in-out forwards;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="welcome-page">
+            <h1>¿Plans?</h1>
+            <p>¡Hola! ¿Cómo estás mi positosh?</p>
+            <button id="start-button">¡Siguiente!</button>
+            <div class="image-container">
+                <img src="imagenes/gatoInicio.jpeg" alt="Imagen de gato">
+            </div>
+        </div>
+
+        <main id="main">
+           
+            <div>
+                <p class="invitation">Hola corazón, ¿quieres ir al cine conmigo?</p>
+                <p>¡Para empezar con nuestra lista!</p>
+                <button  onclick="redireccionar()">¡Vamoshh!</button>
+                <div class="image-container">
+                    <img src="imagenes/peli.jpg" alt="Imagen de película">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+	 function redireccionar() {
+            window.location.href = "https://api.whatsapp.com/send?phone=528714240551&text=Sal%20mejor%20afuera%20corazon%20que%20estoy%20esperando%20tu%20respuesta!!";
+        }
+        const startButton = document.getElementById('start-button');
+        const welcomePage = document.getElementById('welcome-page');
+        const mainSection = document.getElementById('main');
+
+        startButton.addEventListener('click', () => {
+            welcomePage.style.display = 'none';
+            mainSection.style.display = 'flex';
+            document.body.style.backgroundColor = '#f0f0f0'; // Cambia el color de fondo al de la invitación
+        });
+    </script>
+</body>
+</html>
+
